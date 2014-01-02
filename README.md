@@ -9,7 +9,7 @@ Factors for the calculation:
 - Financial status of the consumer/patron (this may be the only required input)
 - Financial status of the producer
 - Production/distribution cost of the product
-
+- Expected sales 
 
 The Big Picture TODO list:
 - [ ] Core Calculation(s) probably in Javascript to ease integration into the following platforms:
