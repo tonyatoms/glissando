@@ -1,0 +1,16 @@
+var x = 2;
+var y = 4;
+var elem = document.getElementById("output");
+
+function calculatePayment() {
+    
+    setTextContent(elem, 'You want '+x+' books and '+y+' apples.');   
+}
+
+function setTextContent(element, text) {
+    while (element.firstChild!==null)
+        element.removeChild(element.firstChild); // remove all existing content
+    element.appendChild(document.createTextNode(text));
+}
+
+//calculatePayment();
