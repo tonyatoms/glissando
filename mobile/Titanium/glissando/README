@@ -1,12 +1,12 @@
-Welcome to your Appcelerator Titanium Mobile Project
+The files in this tree are for an Appcelerator Titanium Mobile implementation of glissando
 
-This is a blank project.  Start by editing your application's app.js to 
-make your first mobile project using Titanium.
-
+The project was committed initially in pretty much a "Hello World" state and it may still be there.
 
 
 ----------------------------------
-Stuff our legal folk make us say:
+Stuff the Titanium legal folks included, but only apply to the Titanium code and not to the project code itself:
+(that is all the code in this repo is open source under the MIT license, but since we are mentioning Titanium 
+and Appcelerator, I'm leaving the following legal notices intact - at least for the time being.)
 
 Appcelerator, Appcelerator Titanium and associated marks and logos are 
 trademarks of Appcelerator, Inc. 
