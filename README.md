@@ -1,7 +1,7 @@
 glissando
 =========
 
-Glissando is a system to calculate a fair payment for which takes into account both the consumer's ability to pay as well as the producers's financial status and the cost of production. At its core, Glissando is a set of calculations using multiple sliding scales.
+Glissando is a system to calculate a payment or payments which takes into account both the consumer's ability to pay as well as optionally, the producers's financial status, the cost of production and sales volume. At its core, Glissando is a set of calculations using multiple sliding scales.
 
 WARNING: this project is in its very early stage and is subject to large changes of the code-base, including project-wide name changes and API changes. 
 
