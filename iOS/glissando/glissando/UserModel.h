@@ -3,8 +3,6 @@
 // Glissando
 //
 
-
-
 @interface UserModel : NSObject
 
 @property (nonatomic, copy, readonly) NSString *address1;
@@ -16,5 +14,6 @@
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, copy, readonly) NSNumber *adjustedGrossIncome;
 
+- (int)userAdjustmentFactorFromAGI:(float)adjustedGrossIncome;
 
 @end

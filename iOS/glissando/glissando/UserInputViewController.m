@@ -14,8 +14,7 @@
 
 @implementation UserInputViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -24,79 +23,57 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    //TODO: if a value(s) in defaults, prepopulate the relevant fields
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
-    
-    NSLog(@"textFieldShouldReturn: %@", textField.text );
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
     
     return YES;
 }
 
-
--(void)textFieldDidEndEditing:(UITextField *)textField {
-
-      NSLog(@"textFieldDidEndEditing: %@", textField.text );
-    
-
-    
-}
-
--(BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    
-    NSLog(@"textFieldShouldEND EDITING?   VALIDATE HERE: %@", textField.text );
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     
     if (textField.tag == 1) {
         
         if ([self validateInput:textField.text]) {
             
             return YES;
-        } else{
+        }
+        else {
         
             textField.rightViewMode = UITextFieldViewModeWhileEditing;
-        
         }
     }
-    
     return NO;
 }
 
--(BOOL)validateInput:(NSString*)inputText {
-
+- (BOOL)validateInput:(NSString*)inputText {
     
     if (inputText.length < 1) {
 
         [self showValidationAlert:nil];
         
         return NO;
-        
     }
     
     NSScanner *scan = [NSScanner scannerWithString:inputText];
     
     if (![scan scanInt:NULL] || ![scan isAtEnd]) {
-        NSLog (@"string exist like 'abbc','12ww','1.5w',' 5 ' etc");
         
         [self showValidationAlert:nil];
-    } else  if ([inputText intValue] < 1) {
         
-        NSLog (@"string is a negative number");
+    } else  if ([inputText intValue] < 1) {
         
         [self showValidationAlert:kNegativeNumberErrorMessage];
     
@@ -104,20 +81,18 @@
     else {
         
         [self addUserDataToStore:[inputText integerValue]];
-        
-        NSLog (@"only numeric value like '12','12.5','1.5' etc");
-        
+    
         [self animateView:self.userInputDoneButton WithAlpha:1.0];
         
         self.userInputDoneButton.userInteractionEnabled = YES;
         
         return YES;
     }
-    
+
     return NO;
 }
 
--(void)showValidationAlert:(NSString*)errorMessage {
+- (void)showValidationAlert:(NSString*)errorMessage {
 
     
     if (!errorMessage) {
@@ -134,15 +109,11 @@
 
 }
 
-
--(void)addUserDataToStore:(int)inputInt {
-    
+- (void)addUserDataToStore:(int)inputInt {
     
     NSDictionary *inputDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                [NSNumber numberWithInt:inputInt], @"AdjustedGrossIncome",
                                nil];
-                               
-    //TODO: convert input data dictionary to NSData
     
     NSData *inputData = [NSKeyedArchiver archivedDataWithRootObject:inputDict];
     
@@ -161,7 +132,7 @@
     }
 }
 
--(void)animateView:(UIView*)view WithAlpha:(float)targetAlpha {
+- (void)animateView:(UIView*)view WithAlpha:(float)targetAlpha {
 
     [UIView animateWithDuration:0.5
                  animations:^{
@@ -171,4 +142,5 @@
                      
                  }];
 }
+
 @end
