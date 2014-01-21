@@ -1,9 +1,11 @@
 glissando
 =========
 
-Glissando is a system to calculate a payment or payments which takes into account both the consumer's ability to pay as well as optionally, the producers's financial status, the cost of production and sales volume. At its core, Glissando is a set of calculations using multiple sliding scales.
+Glissando is a system to calculate a payment or payments which takes into account both the consumer's ability to pay as well as optionally, the producers's financial status, the cost of production and sales volume (both to-date and expected). At its core, Glissando is a set of calculations using multiple sliding scales.
 
 WARNING: this project is in its very early stage and is subject to large changes of the code-base, including project-wide name changes and API changes. 
+
+NOTE: in case it is not obvious from the log, only the iOS tree is current. Everything else either meta or a placeholder/stub.
 
 Factors for the calculation:
 - Financial status of the consumer/patron (this may be the only required input)
