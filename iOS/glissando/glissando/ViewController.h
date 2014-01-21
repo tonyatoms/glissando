@@ -11,10 +11,11 @@
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) IBOutlet UIButton *findButton;
+@property (strong, nonatomic) IBOutlet UITextField *productSearchField;
 @property (strong, nonatomic) IBOutlet UILabel *humanReadableLabel;
 @property (strong, nonatomic) IBOutlet UILabel *JSONSummaryLabel;
 @property (strong, nonatomic) IBOutlet UILabel *sellersBasePriceLabel;
-@property (strong, nonatomic) IBOutlet UIButton *inputWTFButton;
 @property (strong, atomic) Product *product;
 @property (strong, atomic) UserModel *userModel;
 

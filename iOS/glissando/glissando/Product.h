@@ -18,4 +18,7 @@
 
 - (NSString*)adjustedPriceFromSellersBasePrice:(float)sellersBasePrice markup:(float)markup andUserFactor:(int)userFactor;
 
+- (NSString*)productSearchWithSearchString:(NSString*)search;
+
+
 @end

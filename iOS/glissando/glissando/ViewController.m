@@ -48,8 +48,47 @@
     }
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+   
+    //TODO: validate input
+    /*
+    if (textField.tag == 1) {
+        
+        if ([self validateInput:textField.text]) {
+            
+            return YES;
+        }
+        else {
+            
+            textField.rightViewMode = UITextFieldViewModeWhileEditing;
+        }
+    }
+    */
+    NSLog(@"VC textFieldShouldEndEditing text: %@", textField.text);
+    
+    self.findButton.userInteractionEnabled = YES;
+    
+    //TODO: assuming valid
+    
+    [self displaySearchResults:textField.text];
+    
+    return YES;
+}
+
+-(void)displaySearchResults:(NSString*)search {
+    
+    [self.product productSearchWithSearchString:search  ];
+}
+
 // This is just a temporary calculation - many more factors will be taken into account.
-//
 - (NSString*)calculatePriceWithAGI:(float)AGI andSellersBasePrice:(float)price {
 
     //TODO: do the calculations in the price model, not here
@@ -68,10 +107,10 @@
 }
 
 // TODO: user can input a product query here - for now, the input panel is just showing one product as a placeholder.
-- (IBAction)inputWTFButtonAction:(id)sender {
+- (IBAction)inputFindButtonAction:(id)sender {
 
     UIAlertView *obj_AlertView=[[UIAlertView alloc]initWithTitle:@""
-                                                         message:@"uh, you can't actually pick a product yet. Enjoy the Abba record!"
+                                                         message:@"Note that this app is for demonstraton purposes only. It is not possible to actually purchase anything through this app at this time."
                                                         delegate:self
                                                cancelButtonTitle:@"OK"
                                                otherButtonTitles:nil];

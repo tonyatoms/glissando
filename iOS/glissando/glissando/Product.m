@@ -5,6 +5,7 @@
 
 
 #import "Product.h"
+#import "GlissandoConstants.h"
 
 @implementation Product
 
@@ -71,5 +72,42 @@
          return @"sorry, this app cannot calculate a price without at least an MSRP";
     }
 }
+
+- (NSString*)productSearchWithSearchString:(NSString*)search {
+
+
+    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=5", search]];
+    
+    NSLog(@"searchURL: %@", searchURL );
+    
+    dispatch_async(kBgQueue, ^{
+        NSData* data = [NSData dataWithContentsOfURL:
+                        searchURL];
+        [self performSelectorOnMainThread:@selector(fetchedData:)
+                               withObject:data waitUntilDone:YES];
+    });
+      
+    //TODO:
+    NSError* error;
+    
+    return [NSString stringWithContentsOfURL:searchURL encoding:NSASCIIStringEncoding error:&error];
+
+}
+- (void)fetchedData:(NSData *)responseData {
+    //parse out the json data
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization
+                          JSONObjectWithData:responseData //1
+                          
+                          options:kNilOptions
+                          error:&error];
+    
+ //   NSArray* latestLoans = [json objectForKey:@"loans"]; //2
+    
+    NSLog(@"json: %@", json); //3
+    
+    
+}
+
 
 @end
