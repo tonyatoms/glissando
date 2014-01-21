@@ -5,6 +5,8 @@ Glissando is a system to calculate a payment or payments which takes into accoun
 
 WARNING: this project is in its very early stage and is subject to large changes of the code-base, including project-wide name changes and API changes. 
 
+NOTE: in case it is not obvious from the log, only the iOS tree is current. Everything else either meta or a placeholder/stub.
+
 Factors for the calculation:
 - Financial status of the consumer/patron (this may be the only required input)
 - Financial status of the producer
