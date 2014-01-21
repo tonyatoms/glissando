@@ -29,22 +29,23 @@
 
 - (int)userAdjustmentFactorFromAGI:(float)adjustedGrossIncome {
     
-    int userFactor = 100;
+    float userFactor = 100;
     
     if (adjustedGrossIncome) {
         
-        if ( (adjustedGrossIncome < 70000) && (adjustedGrossIncome > 36000) ) {
-
-            //TODO: a real calculation of course
-            userFactor = 50;
+        if(adjustedGrossIncome < 12000) { // somewhat arbitrary floor
+        
+            adjustedGrossIncome = 12000;
         }
-        else if(adjustedGrossIncome < 36000) {
+        
+        if (adjustedGrossIncome < 80000) { // somewhat arbitrary ceiling
             
-            userFactor = 10;
+            userFactor =  (adjustedGrossIncome / 80000) * 100;
         }
     }
     
-    return userFactor ;
+    return [[NSNumber numberWithFloat:userFactor] intValue ];
 }
+
 
 @end
