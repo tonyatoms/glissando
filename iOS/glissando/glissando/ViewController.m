@@ -9,11 +9,23 @@
 #import "UserModel.h"
 #import "UserInputViewController.h"
 
+
 @implementation ViewController
+
+-(void) dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(searchReadyHandler)
+                                                 name:kSearchCompleteNotification
+                                               object:nil];
 
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -47,6 +59,7 @@
         self.sellersBasePriceLabel.text =  @"";
     }
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
@@ -85,13 +98,11 @@
 
 -(void)displaySearchResults:(NSString*)search {
     
-    [self.product productSearchWithSearchString:search  ];
+        [self performSegueWithIdentifier: @"resultSegue" sender: self];
 }
 
 // This is just a temporary calculation - many more factors will be taken into account.
 - (NSString*)calculatePriceWithAGI:(float)AGI andSellersBasePrice:(float)price {
-
-    //TODO: do the calculations in the price model, not here
     
     NSString* adjustedPrice;
     
@@ -106,17 +117,25 @@
     return adjustedPrice;
 }
 
-// TODO: user can input a product query here - for now, the input panel is just showing one product as a placeholder.
-- (IBAction)inputFindButtonAction:(id)sender {
 
+- (IBAction)inputFindButtonAction:(id)sender {
+/*
     UIAlertView *obj_AlertView=[[UIAlertView alloc]initWithTitle:@""
                                                          message:@"Note that this app is for demonstraton purposes only. It is not possible to actually purchase anything through this app at this time."
                                                         delegate:self
                                                cancelButtonTitle:@"OK"
                                                otherButtonTitles:nil];
-    [obj_AlertView show];
-
-}
+    
+//    [obj_AlertView show];
+ */   
+    //just testing!
+    // replace right bar button 'refresh' with spinner
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.center = CGPointMake(160, 240);
+    spinner.hidesWhenStopped = YES;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+ }
 
 - (void)showUserInputScreen {
 
@@ -129,6 +148,18 @@
     [self presentViewController:navigationController animated:YES completion: nil];
 
 }
- 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"resultSegue"]) {
+        
+        ResultsTableViewController *resultsTableViewController = [segue destinationViewController];
+        
+        resultsTableViewController.searchString = self.productSearchField.text;
+      
+        // Let the destination VC do the search
+        // resultsTableViewController.iTunesResultsArray = [self.product productSearchWithSearchString:self.productSearchField.text];
+    }
+}
+
 @end
 

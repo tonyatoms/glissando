@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "Product.h"
 #import "UserModel.h"
+#import  "GlissandoConstants.h"  
+#import "ResultsTableViewController.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
 
@@ -18,5 +20,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *sellersBasePriceLabel;
 @property (strong, atomic) Product *product;
 @property (strong, atomic) UserModel *userModel;
+@property (strong, atomic) ResultsTableViewController *resultsTableViewController;
 
 @end

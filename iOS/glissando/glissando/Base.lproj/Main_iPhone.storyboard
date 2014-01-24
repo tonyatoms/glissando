@@ -71,6 +71,56 @@
             </objects>
             <point key="canvasLocation" x="533" y="23"/>
         </scene>
+        <!--Results Table View Controller - Root View Controller-->
+        <scene sceneID="kIi-Pz-Y7r">
+            <objects>
+                <tableViewController id="1FZ-yJ-uua" customClass="ResultsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="BLa-uB-lnM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hIn-dc-yPl">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hIn-dc-yPl" id="trv-sz-DBY">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="9r7-f8-NG9">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="40y-Bx-85y"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNm-8P-mfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="646"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vEH-uw-Ra1">
+            <objects>
+                <navigationController definesPresentationContext="YES" toolbarHidden="NO" id="iJf-fJ-v0K" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="b9f-Rk-hnR">
+                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="EvM-8i-eNH">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="1FZ-yJ-uua" kind="relationship" relationship="rootViewController" id="HXz-bp-ETo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QNT-Me-URM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-457" y="638"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="bpf-db-whI">
             <objects>
@@ -152,7 +202,7 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="7Cj-e9-Qt2"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e6-65-luB">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e6-65-luB">
                                 <rect key="frame" x="254" y="129" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Find">
@@ -160,11 +210,13 @@
                                 </state>
                                 <connections>
                                     <action selector="inputFindButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p9S-Sn-iP1"/>
+                                    <segue destination="1FZ-yJ-uua" kind="modal" identifier="resultSegue" id="mLG-5y-n3S"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.75742047787886868" green="1" blue="0.47006402240240497" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="43d-Na-6Wl"/>
                     <connections>
                         <outlet property="JSONSummaryLabel" destination="StV-GT-fZ6" id="5TZ-aF-JVR"/>
                         <outlet property="findButton" destination="9e6-65-luB" id="ib0-PG-Drf"/>
@@ -202,5 +254,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="ffb-2u-aNb"/>
+        <segue reference="mLG-5y-n3S"/>
     </inferredMetricsTieBreakers>
 </document>

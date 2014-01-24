@@ -24,6 +24,9 @@
 		08078E8E1889CD24003C0483 /* glissandoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08078E8D1889CD24003C0483 /* glissandoTests.m */; };
 		08078E991889D3C9003C0483 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08078E981889D3C9003C0483 /* UserModel.m */; };
 		08078E9C1889D3D8003C0483 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 08078E9B1889D3D8003C0483 /* Product.m */; };
+		086D6EF5189023D700C370BE /* ResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086D6EF4189023D700C370BE /* ResultsTableViewController.m */; };
+		086E47F21891C510003AFE23 /* iTunesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E47F11891C510003AFE23 /* iTunesItem.m */; };
+		7DA9D5D018922C53002A020A /* JSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9D5CF18922C53002A020A /* JSONLoader.m */; };
 		7DF68C01188A0317000E2584 /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF68C00188A0317000E2584 /* UserInputViewController.m */; };
 		7DF68C07188B4316000E2584 /* GlissandoConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF68C06188B4316000E2584 /* GlissandoConstants.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +66,12 @@
 		08078E981889D3C9003C0483 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		08078E9A1889D3D8003C0483 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		08078E9B1889D3D8003C0483 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		086D6EF3189023D700C370BE /* ResultsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsTableViewController.h; sourceTree = "<group>"; };
+		086D6EF4189023D700C370BE /* ResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsTableViewController.m; sourceTree = "<group>"; };
+		086E47F01891C510003AFE23 /* iTunesItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesItem.h; sourceTree = "<group>"; };
+		086E47F11891C510003AFE23 /* iTunesItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesItem.m; sourceTree = "<group>"; };
+		7DA9D5CE18922C53002A020A /* JSONLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONLoader.h; sourceTree = "<group>"; };
+		7DA9D5CF18922C53002A020A /* JSONLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONLoader.m; sourceTree = "<group>"; };
 		7DF68BFF188A0317000E2584 /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
 		7DF68C00188A0317000E2584 /* UserInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInputViewController.m; sourceTree = "<group>"; };
 		7DF68C05188B4316000E2584 /* GlissandoConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlissandoConstants.h; sourceTree = "<group>"; };
@@ -137,6 +146,8 @@
 				7DF68C00188A0317000E2584 /* UserInputViewController.m */,
 				08078E771889CD24003C0483 /* ViewController.h */,
 				08078E781889CD24003C0483 /* ViewController.m */,
+				086D6EF3189023D700C370BE /* ResultsTableViewController.h */,
+				086D6EF4189023D700C370BE /* ResultsTableViewController.m */,
 				08078E7A1889CD24003C0483 /* Images.xcassets */,
 				08078E661889CD24003C0483 /* Supporting Files */,
 			);
@@ -175,6 +186,10 @@
 		7DF68C0B188CB593000E2584 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7DA9D5CE18922C53002A020A /* JSONLoader.h */,
+				7DA9D5CF18922C53002A020A /* JSONLoader.m */,
+				086E47F01891C510003AFE23 /* iTunesItem.h */,
+				086E47F11891C510003AFE23 /* iTunesItem.m */,
 				08078E971889D3C9003C0483 /* UserModel.h */,
 				08078E981889D3C9003C0483 /* UserModel.m */,
 				08078E9A1889D3D8003C0483 /* Product.h */,
@@ -230,9 +245,6 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = atoms.net;
 				TargetAttributes = {
-					08078E5B1889CD24003C0483 = {
-						DevelopmentTeam = HY4C7JVSF2;
-					};
 					08078E7F1889CD24003C0483 = {
 						TestTargetID = 08078E5B1889CD24003C0483;
 					};
@@ -284,10 +296,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				086D6EF5189023D700C370BE /* ResultsTableViewController.m in Sources */,
 				08078E791889CD24003C0483 /* ViewController.m in Sources */,
 				08078E9C1889D3D8003C0483 /* Product.m in Sources */,
 				08078E701889CD24003C0483 /* AppDelegate.m in Sources */,
+				7DA9D5D018922C53002A020A /* JSONLoader.m in Sources */,
 				08078E991889D3C9003C0483 /* UserModel.m in Sources */,
+				086E47F21891C510003AFE23 /* iTunesItem.m in Sources */,
 				7DF68C01188A0317000E2584 /* UserInputViewController.m in Sources */,
 				7DF68C07188B4316000E2584 /* GlissandoConstants.m in Sources */,
 				08078E6C1889CD24003C0483 /* main.m in Sources */,

@@ -14,6 +14,8 @@ NSString *const kNegativeNumberErrorMessage = @"Positive Whole Numbers Only";
 
 NSString *const kWholeNumberErrorMessage = @"Whole Numbers Only";
 
+NSString *const kSearchCompleteNotification = @"SearchCompleteNotification";
+
 
 
 @end

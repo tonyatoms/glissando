@@ -9,25 +9,6 @@
 
 @implementation Product
 
-// This is just here for future reference.
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-             @"features" : @"Features",
-             @"ID": @"Id",
-             @"lat" : @"Lat",
-             @"lng" : @"Long",
-             @"name" : @"Name",
-             @"margin" : @"Margin",
-             @"sellersBasePrice" : @"Sellers Base Price",
-             @"adjustedPrice" : @"Adjusted Price"
-             };
-}
-
-- (NSString *)description {
-    
-    return [NSString stringWithFormat:@"<%@: %p, ID: %@, name: %@, adjusted price: %@>", NSStringFromClass([self class]), self, self.ID, self.name, self.adjustedPrice];
-}
-
 -(id)init {
     if (self = [super init])  {
         self.sellersBasePrice = 10.00; // just for testing until we hook up to real (or sufficiently pretend) products
@@ -71,42 +52,6 @@
     
          return @"sorry, this app cannot calculate a price without at least an MSRP";
     }
-}
-
-- (NSString*)productSearchWithSearchString:(NSString*)search {
-
-
-    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&limit=5", search]];
-    
-    NSLog(@"searchURL: %@", searchURL );
-    
-    dispatch_async(kBgQueue, ^{
-        NSData* data = [NSData dataWithContentsOfURL:
-                        searchURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:)
-                               withObject:data waitUntilDone:YES];
-    });
-      
-    //TODO:
-    NSError* error;
-    
-    return [NSString stringWithContentsOfURL:searchURL encoding:NSASCIIStringEncoding error:&error];
-
-}
-- (void)fetchedData:(NSData *)responseData {
-    //parse out the json data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization
-                          JSONObjectWithData:responseData //1
-                          
-                          options:kNilOptions
-                          error:&error];
-    
- //   NSArray* latestLoans = [json objectForKey:@"loans"]; //2
-    
-    NSLog(@"json: %@", json); //3
-    
-    
 }
 
 
