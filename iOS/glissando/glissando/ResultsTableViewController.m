@@ -36,7 +36,7 @@
     });
 }
 
-// Just before showing the ProductDetailViewController, set the selected Location object
+// Just before showing the ProductDetailViewController, set the selected Product object
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  
     //   ProductDetailViewController *vc = segue.destinationViewController;
