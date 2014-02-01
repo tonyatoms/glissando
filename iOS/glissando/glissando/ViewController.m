@@ -13,20 +13,23 @@
 @implementation ViewController
 
 -(void) dealloc {
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    // Uncomment if adding observer(s)
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
+<<<<<<< HEAD
+    /*
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(searchReadyHandler)
                                                  name:kSearchCompleteNotification
                                                object:nil];
+    */
+=======
 
+>>>>>>> 1a4f27498494d61ea4ee6e8620dfea953792947a
 }
 - (void)viewDidAppear:(BOOL)animated {
     

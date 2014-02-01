@@ -36,7 +36,7 @@
     });
 }
 
-// Just before showing the ProductDetailViewController, set the selected Location object
+// Just before showing the ProductDetailViewController, set the selected Product object
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
  
     //   ProductDetailViewController *vc = segue.destinationViewController;
@@ -50,17 +50,40 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
+    // works, but want to set style
+    //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    //experimental
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+
     
     iTunesItem *itunesItem = [_products objectAtIndex:indexPath.row];
+
     
-    cell.textLabel.text = [NSString stringWithFormat:@"artist:%@ track:%@ price:%@ ",itunesItem.artistName, itunesItem.trackName, itunesItem.trackPrice  ];
-    cell.detailTextLabel.text = itunesItem.trackName;
+   // NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"Using NSAttributed String"];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"artist:%@",itunesItem.artistName ];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ price: $%@ adjustedPrice: %@", itunesItem.trackName, itunesItem.trackPrice, [self adjustedPriceFromBasePrice:itunesItem.trackPrice]                    ];
+    
+    
+    
+    cell.textLabel.font = [UIFont boldSystemFontOfSize: 14.0];
+    
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize: 12.0];
     
     //TODO: add lazy loading of artworkUrl30 via https://github.com/rs/SDWebImage or something like that
     //cell.imageView.image = [UIImage imageNamed:@"genericProduct.png"]; //artworkUrl30
     
     return cell;
+}
+
+// A fake reduction for working on the table output
+-(NSString*)adjustedPriceFromBasePrice:(NSNumber *)basePrice {
+
+    NSNumber *result = [ NSNumber numberWithFloat: [basePrice floatValue]  * 0.8 ];
+
+    return [NSString stringWithFormat:@"$%.2f", [result floatValue] ];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
