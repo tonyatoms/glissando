@@ -26,6 +26,7 @@
 		08078E9C1889D3D8003C0483 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 08078E9B1889D3D8003C0483 /* Product.m */; };
 		086D6EF5189023D700C370BE /* ResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 086D6EF4189023D700C370BE /* ResultsTableViewController.m */; };
 		086E47F21891C510003AFE23 /* iTunesItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E47F11891C510003AFE23 /* iTunesItem.m */; };
+		7D6B3B67189DA2D400E22E6E /* noArtAvailable.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7D6B3B66189DA2D400E22E6E /* noArtAvailable.jpg */; };
 		7DA9D5D018922C53002A020A /* JSONLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA9D5CF18922C53002A020A /* JSONLoader.m */; };
 		7DF68C01188A0317000E2584 /* UserInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF68C00188A0317000E2584 /* UserInputViewController.m */; };
 		7DF68C07188B4316000E2584 /* GlissandoConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF68C06188B4316000E2584 /* GlissandoConstants.m */; };
@@ -70,6 +71,7 @@
 		086D6EF4189023D700C370BE /* ResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsTableViewController.m; sourceTree = "<group>"; };
 		086E47F01891C510003AFE23 /* iTunesItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesItem.h; sourceTree = "<group>"; };
 		086E47F11891C510003AFE23 /* iTunesItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesItem.m; sourceTree = "<group>"; };
+		7D6B3B66189DA2D400E22E6E /* noArtAvailable.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noArtAvailable.jpg; sourceTree = "<group>"; };
 		7DA9D5CE18922C53002A020A /* JSONLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONLoader.h; sourceTree = "<group>"; };
 		7DA9D5CF18922C53002A020A /* JSONLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONLoader.m; sourceTree = "<group>"; };
 		7DF68BFF188A0317000E2584 /* UserInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInputViewController.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		08078E651889CD24003C0483 /* glissando */ = {
 			isa = PBXGroup;
 			children = (
+				7D6B3B65189DA2D400E22E6E /* images */,
 				08078E6E1889CD24003C0483 /* AppDelegate.h */,
 				08078E6F1889CD24003C0483 /* AppDelegate.m */,
 				7DF68C05188B4316000E2584 /* GlissandoConstants.h */,
@@ -181,6 +184,14 @@
 				08078E8A1889CD24003C0483 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7D6B3B65189DA2D400E22E6E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7D6B3B66189DA2D400E22E6E /* noArtAvailable.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		7DF68C0B188CB593000E2584 /* Model */ = {
@@ -277,6 +288,7 @@
 				08078E761889CD24003C0483 /* Main_iPad.storyboard in Resources */,
 				08078E7B1889CD24003C0483 /* Images.xcassets in Resources */,
 				08078E731889CD24003C0483 /* Main_iPhone.storyboard in Resources */,
+				7D6B3B67189DA2D400E22E6E /* noArtAvailable.jpg in Resources */,
 				08078E6A1889CD24003C0483 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
