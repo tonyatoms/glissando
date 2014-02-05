@@ -49,13 +49,18 @@
                     </view>
                     <navigationItem key="navigationItem" title="My Details" id="jEd-76-Z5N">
                         <barButtonItem key="backBarButtonItem" id="hZG-f7-Hjc"/>
-                        <barButtonItem key="leftBarButtonItem" style="done" id="rtU-fO-853">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S0P-mM-n5T">
+                        <barButtonItem key="leftBarButtonItem" title="Item" style="done" id="rtU-fO-853">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="S0P-mM-n5T">
                                 <rect key="frame" x="16" y="5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Back">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="vXZ-lx-hvc" kind="modal" modalTransitionStyle="flipHorizontal" id="ffb-2u-aNb"/>
@@ -262,7 +267,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8ad-H4-3r3"/>
+        <segue reference="ffb-2u-aNb"/>
         <segue reference="HXz-bp-ETo"/>
     </inferredMetricsTieBreakers>
 </document>
